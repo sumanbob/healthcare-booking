@@ -1,0 +1,23 @@
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import DoctorProfile from "./pages/DoctorProfile";
+import { BookingProvider } from "./context/BookingContext";
+import "./index.css";
+
+export default function App() {
+  return (
+    <BookingProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/doctor/:id" element={<DoctorProfile />} />
+        </Routes>
+      </Router>
+    </BookingProvider>
+  );
+}
